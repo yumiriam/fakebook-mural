@@ -1,0 +1,26 @@
+# http://railsonedge.blogspot.com.br/2008/02/rails-forum-tutorial-for-beginners-part.html
+
+
+rails fakebook
+fakebook$ cd vendor/plugins
+git clone git://github.com/technoweenie/restful-authentication.git restful_authentication
+script/generate authenticated User Session \ --include-activation
+modificar config/routes.rb
+	<< map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+rake db:migrate
+script/generate controller home index
+rm public/index.html 
+modificar config/routes.rb
+	<< map.root :controller => "home"
+rake db:migrate
+modificar app/views/home/index.html.erb
+script/generate scaffold Post content:text user:references
+rake db:migrate
+modificar app/models/user.rb
+	<< has_many :posts
+rake db:migrate
+modificar app/controllers/posts_controller.rb
+modificar app/views/posts/index.html.erb
+modificar app/views/posts/new.html.erb
+modificar app/views/posts/edit.html.erb
+modificar app/views/posts/show.html.erb
