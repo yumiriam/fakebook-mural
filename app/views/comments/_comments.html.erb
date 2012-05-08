@@ -1,0 +1,11 @@
+	<% @post.comments.each do |comment| %>
+		<p>
+		  <b>Commenter:</b>
+		  <%= comment.user.username %>
+		</p>
+	 
+		<p>
+		  <b>Comment:</b>
+		  <%= comment.body %>
+		</p>
+	<% end %>

@@ -1,10 +1,12 @@
-<% form_for([@post, @post.comments.build]) do |f| %>
-  <%= f.hidden_field :post_id %>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	<%= form_for([@post, @post.comments.build]) do |f| %>
+		<div class="field">
+		  <%= f.label :body %><br />
+		  <%= f.text_area :body %>
+		</div>
+		<div class="actions">
+		  <%= f.submit %>
+		</div>
+	<% end %>
+	 
+	<%= link_to 'Edit Post', edit_post_path(@post) %> |
+	<%= link_to 'Back to Posts', posts_path %> |

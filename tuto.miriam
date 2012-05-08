@@ -1,23 +1,68 @@
-# http://railsonedge.blogspot.com.br/2008/02/rails-forum-tutorial-for-beginners-part.html
-
-
-$ rails fakebook
-$ fakebook$ cd vendor/plugins
-$ git clone git://github.com/technoweenie/restful-authentication.git restful_authentication
-$ script/generate authenticated User Session \ --include-activation
+$ rails new fakebook -d mysql
+modificar config/database.yml
+	<< user: <seu usuário>
+	<< password: <sua senha>
+$ rake db:create
+modificar Gemfile
+	<< gem 'execjs'
+	<< gem 'devise'
+$ bundle install
+$ rails generate controller home index
+$ rm public/index.html
 modificar config/routes.rb
-	<< map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+	<< root :to => 'home#index'
+modificar app/view/home/index.html.erb
+$ rails generate devise:install
+modificar config/environments/development.rb
+	<< config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+modificar app/views/layouts/application.html.erb
+	<< <p class="notice"><%= notice %></p>
+  << <p class="alert"><%= alert %></p>
+$ rails generate devise User
 $ rake db:migrate
-$ script/generate controller home index
-$ rm public/index.html 
+$ rails generate devise:views users
 modificar config/routes.rb
-	<< map.root :controller => "home"
-$ rake db:migrate
-modificar app/views/home/index.html.erb
-$ script/generate scaffold Post content:text user:references
+	<<   devise_for :users, :path => 'users', :path_names => {
+  <<		:sign_in => 'login',
+  <<		:sign_out => 'logout',
+  <<		:password => 'secret',
+  <<		:confirmation => 'verification',
+  <<		:unlock => 'unblock',
+  <<		:registration => 'register',
+  <<		:sign_up => 'cmon_let_me_in'
+  <<	}
+$ rails generate migration add_username_to_users username:string
 $ rake db:migrate
 modificar app/models/user.rb
-	<< has_many :posts
+	<< attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+	<< attr_accessor :login
+	<< attr_accessible :login
+modificar config/initializers/devise.rb
+	<< config.authentication_keys = [ :login ]
+	<< config.reset_password_keys = [ :login ]
+sobrescrever método find_for_database em app/models/user.rb
+	<< def self.find_first_by_auth_conditions(warden_conditions)
+  << conditions = warden_conditions.dup
+  << if reset_password_token = conditions[:reset_password_token]
+  <<   where(conditions).where(["reset_password_token = ?", reset_password_token]).first
+  << else
+  <<   login = conditions.delete(:login).downcase
+  <<   where(conditions).where(["lower(username) = :value OR lower(email) = :value", 
+  { :value => login.downcase }]).first
+  << end
+	<< end
+$ rails generate devise:views
+modificar app/views/devise/sessions/new.html.erb
+modificar app/views/devise/registrations/new.html.erb
+modificar app/views/devise/registrations/edit.html.erb
+modificar config/locales/en.yml
+	<< en:
+  << activerecord:
+  <<   attributes:
+  <<     user:  
+  <<       login: "Username or email"
+  
+$ rails generate scaffold post content:text user:references
 $ rake db:migrate
 modificar app/controllers/posts_controller.rb
 modificar app/views/posts/index.html.erb
@@ -25,29 +70,19 @@ modificar app/views/posts/new.html.erb
 modificar app/views/posts/edit.html.erb
 modificar app/views/posts/show.html.erb
 
-
-# 
-$ script/generate model Comment user:references body:text post:references
+$ rails generate model comment user:references body:text post:references
 modificar app/models/user.rb
 	<< has_many :comments
 modificar app/models/post.rb
 	<< has_many :comments
-app/models/comment.rb
-	class Comment < ActiveRecord::Base
-		belongs_to :post
-		belongs_to :user
-	end
 $ rake db:migrate
 modificar config/routes.rb
-	<< map.resources :posts, :has_many => :comments
-$ script/generate controller Comments
-modificar app/views/posts/show.html.erb
-	<h2>Add a comment:</h2>
+	<< resources :posts do
+	<< 	resources :comments
+	<< end
+$ rails generate controller Comments
+criar arquivo app/views/comments/_form.html.erb
 	<%= form_for([@post, @post.comments.build]) do |f| %>
-		<div class="field">
-		  <%= f.label :commenter %><br />
-		  <%= f.text_field :commenter %>
-		</div>
 		<div class="field">
 		  <%= f.label :body %><br />
 		  <%= f.text_area :body %>
@@ -59,6 +94,24 @@ modificar app/views/posts/show.html.erb
 	 
 	<%= link_to 'Edit Post', edit_post_path(@post) %> |
 	<%= link_to 'Back to Posts', posts_path %> |
+criar arquivo app/views/comments/_comment.html.erb
+	<% @post.comments.each do |comment| %>
+		<p>
+		  <b>Commenter:</b>
+		  <%= comment.user.username %>
+		</p>
+	 
+		<p>
+		  <b>Comment:</b>
+		  <%= comment.body %>
+		</p>
+	<% end %>
+modificar app/views/posts/show.html.erb (renders)
+	<h2>Comments</h2>
+	<%= render :partial => "comments/comment" %>
+
+	<h2>Add a comment:</h2>
+	<%= render :partial => "comments/form" %>
 modificar app/controllers/comments_controller.rb
 	class CommentsController < ApplicationController
 		def create
@@ -76,26 +129,3 @@ modificar app/controllers/comments_controller.rb
 		  redirect_to post_path(@post)
 		end
 	end
-modificar app/views/posts/show.html.erb
-	<h2>Comments</h2>
-	<% @post.comments.each do |comment| %>
-		<p>
-		  <b>Commenter:</b>
-		  <%= comment.commenter %>
-		</p>
-	 
-		<p>
-		  <b>Comment:</b>
-		  <%= comment.body %>
-		</p>
-	<% end %>
-criar arquivo app/views/comments/_comment.html.erb
-	<< listagem de comentários [l80~l91]
-criar arquivo app/views/comments/_form.html.erb
-	<< conteúdo do formulário de comentário [l46~l58]
-modificar app/views/posts/show.html.erb (renders)
-	<h2>Comments</h2>
-	<%= render :partial => "comments/comment" %>
-
-	<h2>Add a comment:</h2>
-	<%= render :partial => "comments/form" %>
