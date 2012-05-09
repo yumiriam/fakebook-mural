@@ -2,7 +2,12 @@ FakebookMural::Application.routes.draw do
   authenticated :user do
 	  resources :posts do
 	  	resources :comments
+	  	resources :post_likes
 	  end
+	end
+
+	resources :comments do
+		resources :comment_likes
 	end
 	
   devise_for :users, :path => 'users', :path_names => {

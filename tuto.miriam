@@ -129,3 +129,24 @@ modificar app/controllers/comments_controller.rb
 		  redirect_to post_path(@post)
 		end
 	end
+	
+#
+$ rails generate model post_like post:references user:references
+$ rails generate model comment_like comment:references user:references
+modificar app/models/user.rb
+	<< has_many :post_likes
+	<< has_many :comment_likes
+modificar app/models/post.rb
+	<< has_many :post_likes
+modificar app/models/comment.rb
+	<< has_many :comment_likes
+$ rake db:migrate
+modificar config/routes.rb
+	<< resources :posts do
+	<<  	resources :comments do
+	<<			resources :comment_likes
+	<<  	end
+	<<  	resources :post_likes
+	<< end
+$ rails generate controller PostLikes
+$ rails generate controller CommentLikes

@@ -10,8 +10,14 @@
   <%= @post.user.username %>
 </p>
 
+<p>
+	<%= @post.post_likes.size %> people likes this.
+</p>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path %> |
+<%= link_to 'Like', [@post, @post.post_likes.build],
+		:method => :create %>
 
 <h2>Comments</h2>
 <%= render :partial => "comments/comments" %>

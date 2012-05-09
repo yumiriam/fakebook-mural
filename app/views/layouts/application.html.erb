@@ -11,7 +11,13 @@
 <div id="main">
 	<div id="cabecalho"><h1>&nbsp;Fakebook</h1></div>
 	<div id="esquerda">&nbsp;</div>
-	<div id="direita">&nbsp;</div>
+	<div id="direita">
+		<% if user_signed_in? %>
+			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+		<% else %>
+			<%= link_to "Login", "users/login" %>
+		<% end %>
+	</div>
 	<div id="conteudo">
 		<%= yield %>
 		<p class="notice"><%= notice %></p>
