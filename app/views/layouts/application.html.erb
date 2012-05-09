@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fakebook2</title>
+  <title>Fakebook Mural</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div id="main">
+	<div id="cabecalho"><h1>&nbsp;Fakebook</h1></div>
+	<div id="esquerda">&nbsp;</div>
+	<div id="direita">&nbsp;</div>
+	<div id="conteudo">
+		<%= yield %>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	</div>
+	<div id="rodape"></div>
+</div>
 
 </body>
 </html>

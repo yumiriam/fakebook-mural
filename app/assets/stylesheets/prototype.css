@@ -1,0 +1,72 @@
+html, body {
+	height:100%;
+}
+
+body {
+	font:normal .75em/12px Arial, Helvetica, sans-serif; 
+	margin:0 auto;
+}
+
+div#main {
+	position: relative;
+	width:100%;
+	min-width: 1000px;
+	min-height: 100%;
+}
+
+div#esquerda, div#direita, div#conteudo {
+	position: relative;
+	background-color: #fff;
+}
+
+div#esquerda, div#direita {
+	width:198px;
+	top: 0;
+	bottom: 0;
+	min-height:450px;
+	overflow: auto;
+	margin-bottom:56px;
+	border-left: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+}
+
+div#direita {
+	float:right;
+}
+
+div#esquerda {
+	float:left;
+}
+
+div#conteudo {
+	left:0px;
+	overflow:hidden;
+	padding:10px;
+	padding-bottom:56px;
+	width:518px;
+}
+
+div#cabecalho, div#rodape {
+	clear:both;
+	width:100%;
+	text-align:center;
+}
+
+div#cabecalho {
+	background-color: #ccc;
+	background-repeat: no-repeat;
+	color: #fff;
+	height: 70px;
+	position: relative;
+	text-align:left;
+	padding: 10px 0px;
+}
+
+div#rodape {
+	border-top: 1px solid #aaa;
+	bottom: 0;
+	color: #fff;
+	height: 45px;
+	padding: 5px 0px;
+	position: absolute;
+}

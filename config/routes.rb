@@ -1,4 +1,4 @@
-Fakebook2::Application.routes.draw do
+FakebookMural::Application.routes.draw do
   authenticated :user do
 	  resources :posts do
 	  	resources :comments

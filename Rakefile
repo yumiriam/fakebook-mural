@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Fakebook2::Application.load_tasks
+FakebookMural::Application.load_tasks
