@@ -1,0 +1,11 @@
+Para configurar o projeto corretamente depois de baixar e antes de rodar:
+
+Modificar config/database.yml
+	<< user: <seu usuário>
+	<< password: <sua senha>
+Criar o BD na sua máquina
+	$ rake db:create:all
+Instalar os plugins
+	$ bundle install
+Criar o BD na sua máquina com as tabelas
+	$ rake db:migrate
