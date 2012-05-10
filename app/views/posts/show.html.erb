@@ -9,16 +9,21 @@
   <b>User:</b>
   <%= @post.user.username %>
 </p>
-
+<% if @post.post_likes.size > 0 %>
 <p>
 	<%= @post.post_likes.size %> people likes this.
 </p>
-
+<% end %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %> |
-<%= link_to 'Like', [@post, @post.post_likes.build],
-		:method => :create %>
-
+<% likes = @post.post_likes.where(:user_id => current_user) %>
+<% if likes.size > 0 %>
+	<%= link_to 'Unlike', [@post, likes.first],
+			:method => :delete %>
+<% else %>
+	<%= link_to 'Like', [@post, @post.post_likes.build],
+			:method => :create %>
+<% end %>
 <h2>Comments</h2>
 <%= render :partial => "comments/comments" %>
 

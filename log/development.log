@@ -16300,3 +16300,4055 @@ Served asset /posts.js - 304 Not Modified (1ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:03:05 -0300
 Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:25:18 -0300
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mPostLike Exists (0.5ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user` = 1 LIMIT 1[0m
+Mysql2::Error: Unknown column 'post_likes.user' in 'where clause': SELECT  1 FROM `post_likes`  WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user` = 1 LIMIT 1
+  Rendered posts/show.html.erb within layouts/application (107.4ms)
+Completed 500 Internal Server Error in 180ms
+
+ActionView::Template::Error (Mysql2::Error: Unknown column 'post_likes.user' in 'where clause': SELECT  1 FROM `post_likes`  WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user` = 1 LIMIT 1):
+    17: <%= link_to 'Edit', edit_post_path(@post) %> |
+    18: <%= link_to 'Back', posts_path %> |
+    19: <% like = @post.post_likes.where(:user => current_user) %>
+    20: <% if like.exists? %>
+    21: 	<%= link_to 'Unlike', [@post, like],
+    22: 			:method => :delete %>
+    23: <% else %>
+  app/views/posts/show.html.erb:20:in `_app_views_posts_show_html_erb__1159600530514325156_24375320'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.7ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.2ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:26:29 -0300
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mPostLike Exists (0.3ms)[0m  SELECT 1 FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1
+  Rendered posts/show.html.erb within layouts/application (37.3ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined method `model_name' for ActiveRecord::Relation:Class):
+    18: <%= link_to 'Back', posts_path %> |
+    19: <% like = @post.post_likes.where(:user_id => current_user) %>
+    20: <% if like.exists? %>
+    21: 	<%= link_to 'Unlike', [@post, like],
+    22: 			:method => :delete %>
+    23: <% else %>
+    24: 	<%= link_to 'Like', [@post, @post.post_likes.build],
+  app/views/posts/show.html.erb:21:in `_app_views_posts_show_html_erb__1159600530514325156_33711160'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.7ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.1ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mPostLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  Rendered comments/_comments.html.erb (19.1ms)
+  Rendered comments/_form.html.erb (14.0ms)
+  Rendered posts/show.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 129ms (Views: 124.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /comment_likes.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /post_likes.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /posts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /comments.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /home.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /prototype.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /application.css - 304 Not Modified (32ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /jquery.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /comment_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /post_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /posts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:28:09 -0300
+Served asset /application.js - 304 Not Modified (13ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:28:23 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mPostLike Exists (0.6ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPostLike Load (0.5ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  Rendered posts/show.html.erb within layouts/application (33.0ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (undefined method `user' for #<ActiveRecord::Relation:0x00000005095a88>):
+    18: <%= link_to 'Back', posts_path %> |
+    19: <% like = @post.post_likes.where(:user_id => current_user) %>
+    20: <% if like.exists? %>
+    21: 	<%= like.user.id %>
+    22: <% else %>
+    23: 	<%= link_to 'Like', [@post, @post.post_likes.build],
+    24: 			:method => :create %>
+  app/views/posts/show.html.erb:21:in `_app_views_posts_show_html_erb__1159600530514325156_42209000'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.9ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:28:45 -0300
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mPostLike Exists (0.3ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPostLike Load (0.2ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  Rendered posts/show.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionView::Template::Error (undefined method `user' for #<ActiveRecord::Relation:0x00000004d28008>):
+    18: <%= link_to 'Back', posts_path %> |
+    19: <% like = @post.post_likes.where(:user_id => current_user) %>
+    20: <% if like.exists? %>
+    21: 	<%= like.user %>
+    22: <% else %>
+    23: 	<%= link_to 'Like', [@post, @post.post_likes.build],
+    24: 			:method => :create %>
+  app/views/posts/show.html.erb:21:in `_app_views_posts_show_html_erb__1159600530514325156_43043340'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.4ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:29:40 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mPostLike Exists (0.5ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  Rendered comments/_comments.html.erb (2.1ms)
+  Rendered comments/_form.html.erb (6.3ms)
+  Rendered posts/show.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 64ms (Views: 59.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /comment_likes.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /prototype.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /posts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /comment_likes.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:29:41 -0300
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:30:01 -0300
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  Rendered posts/show.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (Unknown key: user_id):
+    16: 
+    17: <%= link_to 'Edit', edit_post_path(@post) %> |
+    18: <%= link_to 'Back', posts_path %> |
+    19: <% like = @post.post_likes.find(:user_id => current_user) %>
+    20: <% if like.exists? %>
+    21: 	<%= like.all %>
+    22: <% else %>
+  app/views/posts/show.html.erb:19:in `_app_views_posts_show_html_erb__1159600530514325156_42177500'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.5ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.8ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:30:50 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered posts/show.html.erb within layouts/application (21.4ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (Unknown key: user):
+    17: <%= link_to 'Edit', edit_post_path(@post) %> |
+    18: <%= link_to 'Back', posts_path %> |
+    19: <% user = User.find(current_user) %>
+    20: <% like = @post.post_likes.find(:user => user) %>
+    21: <% if like.exists? %>
+    22: 	<%= like.all %>
+    23: <% else %>
+  app/views/posts/show.html.erb:20:in `_app_views_posts_show_html_erb__1159600530514325156_25715100'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:30:51 -0300
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered posts/show.html.erb within layouts/application (10.5ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (Unknown key: user):
+    17: <%= link_to 'Edit', edit_post_path(@post) %> |
+    18: <%= link_to 'Back', posts_path %> |
+    19: <% user = User.find(current_user) %>
+    20: <% like = @post.post_likes.find(:user => user) %>
+    21: <% if like.exists? %>
+    22: 	<%= like.all %>
+    23: <% else %>
+  app/views/posts/show.html.erb:20:in `_app_views_posts_show_html_erb__1159600530514325156_25715100'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.4ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.5ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:30:59 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mPostLike Load (0.4ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`id` = 1 LIMIT 1[0m
+  Rendered posts/show.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 24ms
+
+ActiveRecord::RecordNotFound (Couldn't find PostLike with id=1 [WHERE `post_likes`.`post_id` = 1]):
+  app/views/posts/show.html.erb:20:in `_app_views_posts_show_html_erb__1159600530514325156_37819640'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.4ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:32:57 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mPostLike Load (0.4ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  Rendered posts/show.html.erb within layouts/application (15.4ms)
+Completed 500 Internal Server Error in 25ms
+
+ActionView::Template::Error (can't convert Symbol into Integer):
+    18: <%= link_to 'Back', posts_path %> |
+    19: <% likes = @post.post_likes.where(:user_id => current_user) %>
+    20: <% if likes.size > 0 %>
+    21: 	<%= link_to 'Unlike', [@post, likes[:like_post]],
+    22: 			:method => :delete %>
+    23: <% else %>
+    24: 	<%= link_to 'Like', [@post, @post.post_likes.build],
+  app/views/posts/show.html.erb:21:in `_app_views_posts_show_html_erb__1159600530514325156_41209380'
+  app/controllers/posts_controller.rb:22:in `show'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (36.1ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (43.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mPostLike Load (0.4ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  Rendered comments/_comments.html.erb (2.2ms)
+  Rendered comments/_form.html.erb (6.2ms)
+  Rendered posts/show.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 67ms (Views: 62.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:12 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started DELETE "/posts/1/post_likes/23" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10=", "post_id"=>"1", "id"=>"23"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mPostLike Load (0.2ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`id` = 23 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `post_likes` WHERE `post_likes`.`id` = 23[0m
+  [1m[35m (70.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 77ms (ActiveRecord: 71.4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  Rendered comments/_comments.html.erb (1.5ms)
+  Rendered comments/_form.html.erb (44.8ms)
+  Rendered posts/show.html.erb within layouts/application (54.8ms)
+Completed 200 OK in 75ms (Views: 71.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /comment_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /comments.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /post_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:29 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started POST "/posts/1/post_likes" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10=", "post_id"=>"1"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`user_id` IS NULL) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `post_likes` (`created_at`, `post_id`, `updated_at`, `user_id`) VALUES ('2012-05-09 23:33:32', NULL, '2012-05-09 23:33:32', NULL)
+  [1m[36m (45.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`id` != 28 AND `post_likes`.`user_id` = 1) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  UPDATE `post_likes` SET `user_id` = 1, `updated_at` = '2012-05-09 23:33:32' WHERE `post_likes`.`id` = 28
+  [1m[36m (44.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.6ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY 1 AND `post_likes`.`id` != 28 AND `post_likes`.`user_id` = 1) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE `post_likes` SET `post_id` = 1, `updated_at` = '2012-05-09 23:33:32' WHERE `post_likes`.`id` = 28
+  [1m[36m (39.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 164ms (ActiveRecord: 132.4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mPostLike Load (0.3ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  Rendered comments/_comments.html.erb (1.5ms)
+  Rendered comments/_form.html.erb (2.9ms)
+  Rendered posts/show.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 36ms (Views: 31.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /comments.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:32 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/posts/1/post_likes/28" for 127.0.0.1 at 2012-05-09 20:33:33 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10=", "post_id"=>"1", "id"=>"28"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mPostLike Load (0.4ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`id` = 28 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `post_likes` WHERE `post_likes`.`id` = 28[0m
+  [1m[35m (75.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 84ms (ActiveRecord: 76.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  Rendered comments/_comments.html.erb (3.9ms)
+  Rendered comments/_form.html.erb (6.1ms)
+  Rendered posts/show.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 44ms (Views: 41.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /comments.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /post_likes.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:33:34 -0300
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:35:38 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  Rendered comments/_comments.html.erb (6.2ms)
+  Rendered comments/_form.html.erb (6.5ms)
+  Rendered posts/show.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 71ms (Views: 66.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /comment_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /prototype.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:39 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2012-05-09 20:35:46 -0300
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10=", "comment"=>{"body"=>"comment"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `comments` (`body`, `created_at`, `post_id`, `updated_at`, `user_id`) VALUES ('comment', '2012-05-09 23:35:46', NULL, '2012-05-09 23:35:46', NULL)[0m
+  [1m[35m (67.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `comments` SET `user_id` = 1, `updated_at` = '2012-05-09 23:35:46' WHERE `comments`.`id` = 3
+  [1m[36m (45.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `comments` SET `post_id` = 1, `updated_at` = '2012-05-09 23:35:46' WHERE `comments`.`id` = 3[0m
+  [1m[35m (42.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 176ms (ActiveRecord: 156.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1
+  Rendered comments/_comments.html.erb (34.1ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered posts/show.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 101ms (Views: 94.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:47 -0300
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started POST "/comments/3/comment_likes" for 127.0.0.1 at 2012-05-09 20:35:51 -0300
+Processing by CommentLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10=", "comment_id"=>"3"}
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`id` = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mCommentLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY NULL AND `comment_likes`.`user_id` IS NULL) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `comment_likes` (`comment_id`, `created_at`, `updated_at`, `user_id`) VALUES (NULL, '2012-05-09 23:35:51', '2012-05-09 23:35:51', NULL)
+  [1m[36m (74.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCommentLike Exists (0.3ms)[0m  [1mSELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY NULL AND `comment_likes`.`id` != 3 AND `comment_likes`.`user_id` = 1) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  UPDATE `comment_likes` SET `user_id` = 1, `updated_at` = '2012-05-09 23:35:51' WHERE `comment_likes`.`id` = 3
+  [1m[36m (45.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCommentLike Exists (0.6ms)[0m  [1mSELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY 3 AND `comment_likes`.`id` != 3 AND `comment_likes`.`user_id` = 1) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE `comment_likes` SET `comment_id` = 3, `updated_at` = '2012-05-09 23:35:51' WHERE `comment_likes`.`id` = 3
+  [1m[36m (38.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 194ms (ActiveRecord: 162.8ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1
+  [1m[36mCommentLike Load (0.2ms)[0m  [1mSELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1 LIMIT 1[0m
+  Rendered comments/_comments.html.erb (9.1ms)
+  Rendered comments/_form.html.erb (3.2ms)
+  Rendered posts/show.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 42ms (Views: 38.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:52 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started DELETE "/comments/3/comment_likes/3" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Processing by CommentLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10=", "comment_id"=>"3", "id"=>"3"}
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`id` = 3 LIMIT 1
+  [1m[36mCommentLike Load (0.4ms)[0m  [1mSELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM `comment_likes` WHERE `comment_likes`.`id` = 3[0m
+  [1m[35m (76.5ms)[0m  COMMIT
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 89ms (ActiveRecord: 78.4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1[0m
+  Rendered comments/_comments.html.erb (19.1ms)
+  Rendered comments/_form.html.erb (5.4ms)
+  Rendered posts/show.html.erb within layouts/application (41.2ms)
+Completed 200 OK in 81ms (Views: 75.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /comment_likes.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /post_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:35:54 -0300
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started POST "/posts/1/post_likes" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10=", "post_id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.3ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`user_id` IS NULL) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `post_likes` (`created_at`, `post_id`, `updated_at`, `user_id`) VALUES ('2012-05-09 23:36:10', NULL, '2012-05-09 23:36:10', NULL)[0m
+  [1m[35m (79.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.4ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`id` != 29 AND `post_likes`.`user_id` = 1) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `post_likes` SET `user_id` = 1, `updated_at` = '2012-05-09 23:36:10' WHERE `post_likes`.`id` = 29[0m
+  [1m[35m (50.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.6ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY 1 AND `post_likes`.`id` != 29 AND `post_likes`.`user_id` = 1) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `post_likes` SET `post_id` = 1, `updated_at` = '2012-05-09 23:36:10' WHERE `post_likes`.`id` = 29[0m
+  [1m[35m (50.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 201ms (ActiveRecord: 182.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1[0m
+  Rendered comments/_comments.html.erb (16.7ms)
+  Rendered comments/_form.html.erb (43.5ms)
+  Rendered posts/show.html.erb within layouts/application (85.4ms)
+Completed 200 OK in 124ms (Views: 118.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /post_likes.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:10 -0300
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started DELETE "/posts/1/post_likes/29" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10=", "post_id"=>"1", "id"=>"29"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`id` = 29 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM `post_likes` WHERE `post_likes`.`id` = 29
+  [1m[36m (77.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 87ms (ActiveRecord: 78.9ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1[0m
+  Rendered comments/_comments.html.erb (6.6ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered posts/show.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 58ms (Views: 54.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /comment_likes.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /application.css - 304 Not Modified (45ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:17 -0300
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2012-05-09 20:36:18 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Npra9m580a81x+JNli78ECsxfmoiGK+92DTn3XnDf10="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-09 20:36:18 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /comment_likes.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /posts.js - 304 Not Modified (38ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:19 -0300
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2012-05-09 20:36:20 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/_links.erb (4.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 58ms (Views: 55.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:20 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:20 -0300
+Served asset /comments.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:20 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /home.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /prototype.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:21 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "user"=>{"login"=>"lissa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (lower(username) = 'lissa') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `current_sign_in_at` = '2012-05-09 23:36:27', `sign_in_count` = 2, `updated_at` = '2012-05-09 23:36:27' WHERE `users`.`id` = 2[0m
+  [1m[35m (45.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 158ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 24ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /comments.css - 304 Not Modified (55ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /post_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /prototype.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /comment_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:27 -0300
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#index as HTML
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2
+  Rendered posts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /application.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:31 -0300
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (5.6ms)
+  Rendered posts/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 77ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /home.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /prototype.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:36 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:37 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:37 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:37 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:37 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:37 -0300
+Served asset /post_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:37 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:37 -0300
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.2ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (7.5ms)
+  Rendered comments/_form.html.erb (3.1ms)
+  Rendered posts/show.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /comment_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /comments.js - 304 Not Modified (39ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:41 -0300
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started DELETE "/posts/1/post_likes/22" for 127.0.0.1 at 2012-05-09 20:36:49 -0300
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "post_id"=>"1", "id"=>"22"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mPostLike Load (0.3ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`id` = 22 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `post_likes` WHERE `post_likes`.`id` = 22[0m
+  [1m[35m (86.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 93ms (ActiveRecord: 87.5ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:36:49 -0300
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (9.0ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered posts/show.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 52ms (Views: 47.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:49 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:49 -0300
+Served asset /home.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:49 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:49 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:50 -0300
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started POST "/posts/1/post_likes" for 127.0.0.1 at 2012-05-09 20:36:53 -0300
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "post_id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`user_id` IS NULL) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `post_likes` (`created_at`, `post_id`, `updated_at`, `user_id`) VALUES ('2012-05-09 23:36:53', NULL, '2012-05-09 23:36:53', NULL)
+  [1m[36m (77.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`id` != 30 AND `post_likes`.`user_id` = 2) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE `post_likes` SET `user_id` = 2, `updated_at` = '2012-05-09 23:36:53' WHERE `post_likes`.`id` = 30
+  [1m[36m (51.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY 1 AND `post_likes`.`id` != 30 AND `post_likes`.`user_id` = 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  UPDATE `post_likes` SET `post_id` = 1, `updated_at` = '2012-05-09 23:36:53' WHERE `post_likes`.`id` = 30
+  [1m[36m (135.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 283ms (ActiveRecord: 267.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:36:53 -0300
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.2ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (14.8ms)
+  Rendered comments/_form.html.erb (2.9ms)
+  Rendered posts/show.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 84ms (Views: 79.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:53 -0300
+Served asset /comment_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:53 -0300
+Served asset /comments.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /post_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:36:54 -0300
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  Rendered comments/_comments.html.erb (14.5ms)
+  Rendered comments/_form.html.erb (5.9ms)
+  Rendered posts/show.html.erb within layouts/application (38.2ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (5ms)  (pid 17338)
+Completed 200 OK in 123ms (Views: 117.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /comment_likes.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /prototype.css - 200 OK (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /application.css - 304 Not Modified (64ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:38:53 -0300
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.2ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (6.7ms)
+  Rendered comments/_form.html.erb (2.8ms)
+  Rendered posts/show.html.erb within layouts/application (19.1ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (2ms)  (pid 17338)
+Completed 200 OK in 58ms (Views: 54.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /comment_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /posts.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /prototype.css - 200 OK (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:39:14 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:39:15 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:39:15 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:39:15 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:39:15 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:39:15 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:39:15 -0300
+Served asset /application.js - 304 Not Modified (49ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:40:54 -0300
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mPostLike Load (0.2ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  Rendered comments/_comments.html.erb (13.8ms)
+  Rendered comments/_form.html.erb (5.8ms)
+  Rendered posts/show.html.erb within layouts/application (32.1ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (5ms)  (pid 17338)
+Completed 200 OK in 112ms (Views: 108.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /comment_likes.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /comments.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /post_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /prototype.css - 200 OK (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /application.css - 304 Not Modified (39ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /comment_likes.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:40:55 -0300
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:41:21 -0300
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.4ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (13.2ms)
+  Rendered comments/_form.html.erb (5.7ms)
+  Rendered posts/show.html.erb within layouts/application (36.7ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (2ms)  (pid 17338)
+Completed 200 OK in 134ms (Views: 128.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /comment_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /application.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /posts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /prototype.css - 200 OK (10ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:22 -0300
+Served asset /application.js - 304 Not Modified (11ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:41:24 -0300
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  Rendered comments/_comments.html.erb (13.1ms)
+  Rendered comments/_form.html.erb (5.7ms)
+  Rendered posts/show.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 73ms (Views: 66.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:24 -0300
+Served asset /application.css - 304 Not Modified (55ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /comment_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /home.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:41:25 -0300
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:42:20 -0300
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.4ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (14.0ms)
+  Rendered comments/_form.html.erb (5.7ms)
+  Rendered posts/show.html.erb within layouts/application (38.6ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (5ms)  (pid 17338)
+Completed 200 OK in 128ms (Views: 121.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:20 -0300
+Served asset /comment_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /prototype.css - 200 OK (10ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /application.css - 304 Not Modified (34ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:21 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:42:32 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mPostLike Load (0.3ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  Rendered comments/_comments.html.erb (13.2ms)
+  Rendered comments/_form.html.erb (6.1ms)
+  Rendered posts/show.html.erb within layouts/application (38.8ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (5ms)  (pid 17338)
+Completed 200 OK in 129ms (Views: 123.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /comment_likes.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /prototype.css - 200 OK (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /application.css - 304 Not Modified (21ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:33 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.2ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (9.2ms)
+  Rendered comments/_form.html.erb (45.3ms)
+  Rendered posts/show.html.erb within layouts/application (65.2ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (2ms)  (pid 17338)
+Completed 200 OK in 110ms (Views: 106.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /comment_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /home.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /prototype.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:44 -0300
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  Rendered comments/_comments.html.erb (11.7ms)
+  Rendered comments/_form.html.erb (3.2ms)
+  Rendered posts/show.html.erb within layouts/application (33.3ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (2ms)  (pid 17338)
+Completed 200 OK in 125ms (Views: 119.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /comments.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /prototype.css - 200 OK (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /post_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:42:55 -0300
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.4ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (14.0ms)
+  Rendered comments/_form.html.erb (6.5ms)
+  Rendered posts/show.html.erb within layouts/application (39.0ms)
+Compiled prototype.css  (0ms)  (pid 17338)
+Compiled application.css  (4ms)  (pid 17338)
+Completed 200 OK in 172ms (Views: 165.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /prototype.css - 200 OK (7ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /application.css - 304 Not Modified (36ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:43:17 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:49:29 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  Rendered comments/_comments.html.erb (15.5ms)
+  Rendered comments/_form.html.erb (5.8ms)
+  Rendered posts/show.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 75ms (Views: 69.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /comment_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /comments.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /prototype.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /comment_likes.js - 304 Not Modified (37ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /comments.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:30 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.2ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (8.1ms)
+  Rendered comments/_form.html.erb (3.3ms)
+  Rendered posts/show.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:49:32 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.3ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (14.1ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered posts/show.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 103ms (Views: 98.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /comment_likes.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:13 -0300
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started POST "/comments/3/comment_likes" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Processing by CommentLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "comment_id"=>"3"}
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`id` = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCommentLike Exists (0.3ms)[0m  [1mSELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY NULL AND `comment_likes`.`user_id` IS NULL) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `comment_likes` (`comment_id`, `created_at`, `updated_at`, `user_id`) VALUES (NULL, '2012-05-09 23:50:36', '2012-05-09 23:50:36', NULL)
+  [1m[36m (74.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCommentLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY NULL AND `comment_likes`.`id` != 4 AND `comment_likes`.`user_id` = 2) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE `comment_likes` SET `user_id` = 2, `updated_at` = '2012-05-09 23:50:36' WHERE `comment_likes`.`id` = 4
+  [1m[36m (40.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCommentLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY 3 AND `comment_likes`.`id` != 4 AND `comment_likes`.`user_id` = 2) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE `comment_likes` SET `comment_id` = 3, `updated_at` = '2012-05-09 23:50:36' WHERE `comment_likes`.`id` = 4
+  [1m[36m (40.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 176ms (ActiveRecord: 158.1ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.2ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  [1m[35mCommentLike Load (0.4ms)[0m  SELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2 LIMIT 1
+  Rendered comments/_comments.html.erb (16.0ms)
+  Rendered comments/_form.html.erb (4.3ms)
+  Rendered posts/show.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 52ms (Views: 46.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /home.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /comment_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /post_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:36 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started DELETE "/comments/3/comment_likes/4" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Processing by CommentLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "comment_id"=>"3", "id"=>"4"}
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`id` = 3 LIMIT 1[0m
+  [1m[35mCommentLike Load (0.3ms)[0m  SELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`id` = 4 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `comment_likes` WHERE `comment_likes`.`id` = 4
+  [1m[36m (93.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 102ms (ActiveRecord: 95.4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.3ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (8.8ms)
+  Rendered comments/_form.html.erb (2.8ms)
+  Rendered posts/show.html.erb within layouts/application (37.3ms)
+Completed 200 OK in 57ms (Views: 52.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /comment_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /post_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /comments.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:38 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started DELETE "/posts/1/post_likes/30" for 127.0.0.1 at 2012-05-09 20:50:39 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "post_id"=>"1", "id"=>"30"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mPostLike Load (0.3ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`id` = 30 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `post_likes` WHERE `post_likes`.`id` = 30[0m
+  [1m[35m (83.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 93ms (ActiveRecord: 85.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:50:39 -0300
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (14.6ms)
+  Rendered comments/_form.html.erb (6.1ms)
+  Rendered posts/show.html.erb within layouts/application (38.7ms)
+Completed 200 OK in 73ms (Views: 67.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /comment_likes.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /comments.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /application.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /post_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /comment_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:40 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started POST "/posts/1/post_likes" for 127.0.0.1 at 2012-05-09 20:50:41 -0300
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "post_id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.2ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`user_id` IS NULL) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `post_likes` (`created_at`, `post_id`, `updated_at`, `user_id`) VALUES ('2012-05-09 23:50:41', NULL, '2012-05-09 23:50:41', NULL)
+  [1m[36m (56.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.4ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`id` != 31 AND `post_likes`.`user_id` = 2) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE `post_likes` SET `user_id` = 2, `updated_at` = '2012-05-09 23:50:41' WHERE `post_likes`.`id` = 31
+  [1m[36m (50.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mPostLike Exists (0.5ms)[0m  [1mSELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY 1 AND `post_likes`.`id` != 31 AND `post_likes`.`user_id` = 2) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE `post_likes` SET `post_id` = 1, `updated_at` = '2012-05-09 23:50:41' WHERE `post_likes`.`id` = 31
+  [1m[36m (51.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 174ms (ActiveRecord: 161.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:50:41 -0300
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2[0m
+  [1m[35mPostLike Load (0.2ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  Rendered comments/_comments.html.erb (9.1ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered posts/show.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 44ms (Views: 40.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /comments.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /scaffolds.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /comment_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:42 -0300
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started DELETE "/posts/1/post_likes/31" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "post_id"=>"1", "id"=>"31"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mPostLike Load (0.3ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`id` = 31 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `post_likes` WHERE `post_likes`.`id` = 31
+  [1m[36m (73.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 81ms (ActiveRecord: 74.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2[0m
+  Rendered comments/_comments.html.erb (54.7ms)
+  Rendered comments/_form.html.erb (3.2ms)
+  Rendered posts/show.html.erb within layouts/application (73.9ms)
+Completed 200 OK in 100ms (Views: 94.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /home.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /post_likes.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /prototype.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /posts.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:43 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started POST "/posts/1/post_likes" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Processing by PostLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"k6DT1nawh5GSZhgf0vSR2lKArWTjlT3UjZeRfuRzQwo=", "post_id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.3ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`user_id` IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `post_likes` (`created_at`, `post_id`, `updated_at`, `user_id`) VALUES ('2012-05-09 23:50:45', NULL, '2012-05-09 23:50:45', NULL)[0m
+  [1m[35m (73.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.4ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`id` != 32 AND `post_likes`.`user_id` = 2) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `post_likes` SET `user_id` = 2, `updated_at` = '2012-05-09 23:50:45' WHERE `post_likes`.`id` = 32[0m
+  [1m[35m (39.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.5ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY 1 AND `post_likes`.`id` != 32 AND `post_likes`.`user_id` = 2) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `post_likes` SET `post_id` = 1, `updated_at` = '2012-05-09 23:50:45' WHERE `post_likes`.`id` = 32[0m
+  [1m[35m (38.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 173ms (ActiveRecord: 154.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2
+  [1m[36mPostLike Load (0.9ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 2
+  Rendered comments/_comments.html.erb (12.0ms)
+  Rendered comments/_form.html.erb (5.6ms)
+  Rendered posts/show.html.erb within layouts/application (42.8ms)
+Completed 200 OK in 77ms (Views: 69.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /comments.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /scaffolds.css - 304 Not Modified (40ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /application.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /post_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-09 20:50:45 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-09 20:59:10 -0300
+
+ActionController::RoutingError (No route matches [GET] "/posts/1"):
+  actionpack (3.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.3) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.3) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.3) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.3) lib/rails/engine.rb:479:in `call'
+  railties (3.2.3) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.3) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/miriam/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/miriam/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/miriam/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 11:47:17 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 74ms (Views: 73.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 17ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /application.css - 304 Not Modified (27ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /home.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /comments.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /comment_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /post_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /posts.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /prototype.css - 200 OK (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /scaffolds.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /comment_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /comments.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /home.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /post_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /posts.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:19 -0300
+Served asset /application.js - 304 Not Modified (16ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/_links.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 234ms (Views: 52.7ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /comments.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /post_likes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /posts.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /comment_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:22 -0300
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/users/register/cmon_let_me_in" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/_links.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /posts.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-10 11:47:48 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/users/register/cmon_let_me_in" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/_links.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 48ms (Views: 46.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /post_likes.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /home.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /comment_likes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-10 11:48:25 -0300
+Served asset /application.js - 304 Not Modified (4ms)
