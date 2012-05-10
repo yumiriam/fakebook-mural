@@ -7,3 +7,5 @@ Criar o BD na sua máquina
 	$ rake db:create:all
 Instalar os plugins
 	$ bundle install
+Criar o BD na sua máquina com as tabelas
+	$ rake db:migrate
