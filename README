@@ -1,6 +1,6 @@
 Para configurar o projeto corretamente depois de baixar e antes de rodar:
 
-modificar config/database.yml
+Modificar config/database.yml
 	<< user: <seu usuário>
 	<< password: <sua senha>
 Criar o BD na sua máquina
