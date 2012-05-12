@@ -16,6 +16,7 @@
 <% end %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %> |
+<%= link_to 'Destroy Post', @post, confirm: 'Are you sure?', method: :delete %> | 
 <% likes = @post.post_likes.where(:user_id => current_user) %>
 <% if likes.size > 0 %>
 	<%= link_to 'Unlike', [@post, likes.first],
