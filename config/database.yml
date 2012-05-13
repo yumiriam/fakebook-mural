@@ -14,8 +14,8 @@ development:
   reconnect: false
   database: fakebook-mural_development
   pool: 5
-  username: root
-  password: lissa
+  username: mural
+  password: mural
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -27,8 +27,8 @@ test:
   reconnect: false
   database: fakebook-mural_test
   pool: 5
-  username: root
-  password: lissa
+  username: mural
+  password: mural
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: fakebook-mural_production
   pool: 5
-  username: root
-  password: lissa
+  username: mural
+  password: mural
   socket: /var/run/mysqld/mysqld.sock

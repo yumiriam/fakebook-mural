@@ -1,3 +1,6 @@
 <h1>Inicial</h1>
 
-<%= link_to "Posts", posts_path %>
+<% if user_signed_in? %>
+	<%= link_to "Posts", posts_path %>
+	<%= link_to "Mural", mural_posts_path %>
+<% end %>

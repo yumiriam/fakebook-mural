@@ -14,6 +14,19 @@ class PostsController < ApplicationController
     end
   end
 
+  # GET /posts
+  # GET /posts.json
+  def mural
+  	# @user = User.find(current_user)
+  	# TODO: pegar todos os posts de amigos
+    @posts = Post.order(:created_at).reverse_order
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -50,7 +63,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to mural_posts_path, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -82,7 +95,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to mural_posts_path }
       format.json { head :no_content }
     end
   end

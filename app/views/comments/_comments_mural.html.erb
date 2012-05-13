@@ -1,0 +1,29 @@
+	<% post.comments.each do |comment| %>
+		<p style="text-weight: bold;">
+		  <%= comment.user.username %>
+		</p>
+	 
+		<p>
+		  <%= comment.body %>
+		</p>
+		<% if comment.comment_likes.size > 0 %>
+		<p>
+			<%= comment.comment_likes.size %> people likes this.
+		</p>
+		<% end %>
+		<p>
+			<% if comment.user = current_user || post.user = current_user %>
+			<%= link_to 'Destroy Comment', [comment.post, comment],
+							:confirm => 'Are you sure?',
+							:method => :delete %> |
+			<% end %>
+			<% likes = comment.comment_likes.where(:user_id => current_user) %>
+			<% if likes.size > 0 %>
+				<%= link_to 'Unlike', [comment, likes.first],
+						:method => :delete %>
+			<% else %>
+		    <%= link_to 'Like', [comment, comment.comment_likes.build],
+								:method => :create %>
+			<% end %>
+		</p>
+	<% end %>

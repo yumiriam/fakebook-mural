@@ -70,3 +70,23 @@ div#rodape {
 	padding: 5px 0px;
 	position: absolute;
 }
+
+.text_field_mural {
+	border: 1px solid #aaa;
+	width: 100%;
+}
+
+.linha_mural {
+	border: 0;
+	background-color: #aaa;
+	color: #aaa;
+	height: 1px;
+	width: 100%;
+}
+
+#comments_mural {
+	width: 500px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	background-color: #ddd;
+}

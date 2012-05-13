@@ -1,0 +1,69 @@
+	<p id="notice"><%= notice %></p>
+	<%= render 'form_mural' %>
+	<hr class="linha_mural" />
+	<% @posts.each do |post| %>
+		<p>
+			<b><%= post.user.username %>:</b><br />
+			<%= post.content %>
+		</p>
+		<% if post.post_likes.size > 0 %>
+		<p>
+			<%= post.post_likes.size %> people likes this.
+		</p>
+		<% end %>
+		<% if post.user == current_user %>
+			<%= link_to 'Destroy post', post, confirm: 'Are you sure?', method: :delete %> | 
+		<% end %>
+		<% likes = post.post_likes.where(:user_id => current_user) %>
+		<% if likes.size > 0 %>
+			<%= link_to 'Unlike', [post, likes.first],
+					:method => :delete %>
+		<% else %>
+			<%= link_to 'Like', [post, post.post_likes.build],
+					:method => :create %>
+		<% end %>
+		<div id="comments_mural">
+		<!-- comentarios -->
+			<p style="font-weight: bold;">Comentários</p>
+			<% post.comments.each do |comment| %>
+				<p>
+					<b><%= comment.user.username %>:</b>
+					<%= comment.body %>
+				</p>
+				<% if comment.comment_likes.size > 0 %>
+				<p>
+					<%= comment.comment_likes.size %> people likes this.
+				</p>
+				<% end %>
+				<p>
+					<% if comment.user == current_user || post.user == current_user %>
+					<%= link_to 'Destroy Comment', [comment.post, comment],
+									:confirm => 'Are you sure?',
+									:method => :delete %> |
+					<% end %>
+					<% likes = comment.comment_likes.where(:user_id => current_user) %>
+					<% if likes.size > 0 %>
+						<%= link_to 'Unlike', [comment, likes.first],
+								:method => :delete %>
+					<% else %>
+						<%= link_to 'Like', [comment, comment.comment_likes.build],
+										:method => :create %>
+					<% end %>
+				</p>
+				<hr class="linha_mural" />
+			<% end %>
+			<!-- fim comentarios -->
+			<!-- formulario comentario -->
+			<p style="font-weight: bold;">Add a comment:</p>
+			<%= form_for([post, post.comments.build]) do |f| %>
+				<div class="field">
+					<%= f.text_field :body, :class => "text_field_mural" %>
+				</div>
+				<div class="actions">
+					<%= f.submit %>
+				</div>
+			<% end %>
+			<!-- fim formulario comentario -->
+		</div>
+		<hr class="linha_mural" />
+	<% end %>

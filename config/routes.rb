@@ -1,4 +1,6 @@
 FakebookMural::Application.routes.draw do
+	match '/mural' => 'Posts#mural', :as => 'mural_posts' 
+
   authenticated :user do
 	  resources :posts do
 	  	resources :comments
