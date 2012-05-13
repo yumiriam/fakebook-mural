@@ -31610,3 +31610,991 @@ Served asset /posts.js - 304 Not Modified (1ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:02:15 -0300
 Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Processing by PostsController#mural as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered posts/_form_mural.html.erb (3.8ms)
+  [1m[35mPost Load (0.6ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1[0m
+  Rendered posts/mural.html.erb within layouts/application (94.7ms)
+Completed 200 OK in 119ms (Views: 110.2ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /application.css - 304 Not Modified (24ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /comment_likes.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /post_likes.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:09:34 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:10:36 -0300
+Processing by PostsController#mural as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered posts/_form_mural.html.erb (3.8ms)
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1
+  Rendered posts/mural.html.erb within layouts/application (82.7ms)
+Completed 200 OK in 157ms (Views: 146.6ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /post_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /prototype.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:10:37 -0300
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Processing by PostsController#mural as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered posts/_form_mural.html.erb (4.8ms)
+  [1m[35mPost Load (0.5ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1[0m
+  Rendered posts/mural.html.erb within layouts/application (82.3ms)
+Completed 200 OK in 118ms (Views: 107.7ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /application.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /post_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /prototype.css - 304 Not Modified (48ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:31 -0300
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:32 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:32 -0300
+Served asset /comment_likes.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:32 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:32 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:32 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:32 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:32 -0300
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Processing by PostsController#mural as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered posts/_form_mural.html.erb (4.1ms)
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1
+  Rendered posts/mural.html.erb within layouts/application (79.7ms)
+Completed 200 OK in 116ms (Views: 105.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /application.css - 304 Not Modified (22ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /comments.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /post_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /comment_likes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:12:33 -0300
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:13:00 -0300
+Processing by PostsController#mural as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered posts/_form_mural.html.erb (3.8ms)
+  [1m[35mPost Load (0.6ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  Rendered posts/mural.html.erb within layouts/application (85.0ms)
+Completed 500 Internal Server Error in 95ms
+
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0x00000003345dc0>:0x00000004e5bad8>):
+    7: 			<%= post.content %>
+    8: 		</p>
+    9: 		<% if post.post_likes.size > 0 %>
+    10: 			<% if comment.comment_likes.size == 1 %>
+    11: 			<p>
+    12: 				<%= comment.comment_likes.first.user.username %>  likes this.
+    13: 			</p>
+  app/views/posts/mural.html.erb:10:in `block in _app_views_posts_mural_html_erb___3877089033481851946_41107760'
+  app/views/posts/mural.html.erb:4:in `_app_views_posts_mural_html_erb___3877089033481851946_41107760'
+  app/controllers/posts_controller.rb:24:in `mural'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.4ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.5ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:13:20 -0300
+Processing by PostsController#mural as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered posts/_form_mural.html.erb (3.7ms)
+  [1m[35mPost Load (0.5ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  Rendered posts/mural.html.erb within layouts/application (53.1ms)
+Completed 500 Internal Server Error in 65ms
+
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0x00000003345dc0>:0x00000003d097a8>):
+    7: 			<%= post.content %>
+    8: 		</p>
+    9: 		<% if post.post_likes.size > 0 %>
+    10: 			<% if comment.comment_likes.size == 1 %>
+    11: 			<p>
+    12: 				<%= post.post_likes.first.user.username %>  likes this.
+    13: 			</p>
+  app/views/posts/mural.html.erb:10:in `block in _app_views_posts_mural_html_erb___3877089033481851946_31998040'
+  app/views/posts/mural.html.erb:4:in `_app_views_posts_mural_html_erb___3877089033481851946_31998040'
+  app/controllers/posts_controller.rb:24:in `mural'
+
+
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.2ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/miriam/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.8ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Processing by PostsController#mural as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered posts/_form_mural.html.erb (4.4ms)
+  [1m[35mPost Load (0.6ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (1.5ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1[0m
+  Rendered posts/mural.html.erb within layouts/application (104.3ms)
+Completed 200 OK in 161ms (Views: 149.0ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Served asset /application.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Served asset /posts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:32 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:33 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:33 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:33 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:33 -0300
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:33 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:33 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:33 -0300
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:33 -0300
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started POST "/comments/6/comment_likes" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Processing by CommentLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"5fUepQ0lqkPz/pPL2BkVEi8drwAyuMtDZVXsVUAZjoc=", "comment_id"=>"6"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`id` = 6 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCommentLike Exists (0.5ms)[0m  SELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY NULL AND `comment_likes`.`user_id` IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `comment_likes` (`comment_id`, `created_at`, `updated_at`, `user_id`) VALUES (NULL, '2012-05-13 01:13:48', '2012-05-13 01:13:48', NULL)[0m
+  [1m[35m (42.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCommentLike Exists (0.4ms)[0m  SELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY NULL AND `comment_likes`.`id` != 4 AND `comment_likes`.`user_id` = 1) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `comment_likes` SET `user_id` = 1, `updated_at` = '2012-05-13 01:13:48' WHERE `comment_likes`.`id` = 4[0m
+  [1m[35m (46.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCommentLike Exists (0.5ms)[0m  SELECT 1 FROM `comment_likes` WHERE (`comment_likes`.`comment_id` = BINARY 6 AND `comment_likes`.`id` != 4 AND `comment_likes`.`user_id` = 1) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `comment_likes` SET `comment_id` = 6, `updated_at` = '2012-05-13 01:13:48' WHERE `comment_likes`.`id` = 4[0m
+  [1m[35m (37.9ms)[0m  COMMIT
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 205ms (ActiveRecord: 131.2ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCommentLike Load (0.2ms)[0m  SELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1 LIMIT 1
+  Rendered comments/_comments.html.erb (58.0ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered posts/show.html.erb within layouts/application (71.0ms)
+Completed 200 OK in 89ms (Views: 82.8ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /comment_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /post_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /prototype.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:13:48 -0300
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:14:51 -0300
+Processing by PostsController#mural as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered posts/_form_mural.html.erb (10.2ms)
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mPostLike Load (0.2ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (1.7ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6
+  [1m[36mCommentLike Load (0.2ms)[0m  [1mSELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1
+  [1m[36mCommentLike Load (0.2ms)[0m  [1mSELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1 LIMIT 1[0m
+  Rendered posts/mural.html.erb within layouts/application (151.6ms)
+Completed 200 OK in 246ms (Views: 156.2ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /application.css - 304 Not Modified (24ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /comments.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /post_likes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /jquery.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:14:52 -0300
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started POST "/posts/1/post_likes" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostLikesController#create as HTML
+  Parameters: {"authenticity_token"=>"5fUepQ0lqkPz/pPL2BkVEi8drwAyuMtDZVXsVUAZjoc=", "post_id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.4ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`user_id` IS NULL) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `post_likes` (`created_at`, `post_id`, `updated_at`, `user_id`) VALUES ('2012-05-13 01:15:07', NULL, '2012-05-13 01:15:07', NULL)[0m
+  [1m[35m (71.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.5ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY NULL AND `post_likes`.`id` != 34 AND `post_likes`.`user_id` = 1) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `post_likes` SET `user_id` = 1, `updated_at` = '2012-05-13 01:15:07' WHERE `post_likes`.`id` = 34[0m
+  [1m[35m (45.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPostLike Exists (0.4ms)[0m  SELECT 1 FROM `post_likes` WHERE (`post_likes`.`post_id` = BINARY 1 AND `post_likes`.`id` != 34 AND `post_likes`.`user_id` = 1) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mUPDATE `post_likes` SET `post_id` = 1, `updated_at` = '2012-05-13 01:15:07' WHERE `post_likes`.`id` = 34[0m
+  [1m[35m (40.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/mural
+Completed 302 Found in 185ms (ActiveRecord: 159.8ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Processing by PostsController#mural as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered posts/_form_mural.html.erb (2.6ms)
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mPostLike Load (0.2ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6
+  [1m[36mCommentLike Load (0.3ms)[0m  [1mSELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1
+  [1m[36mCommentLike Load (0.2ms)[0m  [1mSELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1 LIMIT 1[0m
+  Rendered posts/mural.html.erb within layouts/application (90.8ms)
+Completed 200 OK in 111ms (Views: 102.2ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Served asset /application.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Served asset /comment_likes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Served asset /posts.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Served asset /post_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:07 -0300
+Served asset /scaffolds.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:08 -0300
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:08 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:08 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:08 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:08 -0300
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:08 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:08 -0300
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:08 -0300
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started DELETE "/posts/1/post_likes/34" for 127.0.0.1 at 2012-05-12 22:15:12 -0300
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Processing by PostLikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5fUepQ0lqkPz/pPL2BkVEi8drwAyuMtDZVXsVUAZjoc=", "post_id"=>"1", "id"=>"34"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mPostLike Load (0.4ms)[0m  SELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`id` = 34 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM `post_likes` WHERE `post_likes`.`id` = 34
+  [1m[36m (73.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/mural
+Completed 302 Found in 83ms (ActiveRecord: 74.4ms)
+
+
+Started GET "/mural" for 127.0.0.1 at 2012-05-12 22:15:12 -0300
+Processing by PostsController#mural as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered posts/_form_mural.html.erb (2.6ms)
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 3 AND `post_likes`.`user_id` = 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1
+  [1m[36mPostLike Load (0.3ms)[0m  [1mSELECT `post_likes`.* FROM `post_likes` WHERE `post_likes`.`post_id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `post_likes` WHERE `post_likes`.`post_id` = 1 AND `post_likes`.`user_id` = 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 3 AND `comment_likes`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 4 AND `comment_likes`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6[0m
+  [1m[35mCommentLike Load (0.3ms)[0m  SELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1[0m
+  [1m[35mCommentLike Load (0.3ms)[0m  SELECT `comment_likes`.* FROM `comment_likes` WHERE `comment_likes`.`comment_id` = 6 AND `comment_likes`.`user_id` = 1 LIMIT 1
+  Rendered posts/mural.html.erb within layouts/application (70.1ms)
+Completed 200 OK in 97ms (Views: 87.4ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /application.css - 304 Not Modified (62ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /comments.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/post_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /post_likes.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comment_likes.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /comment_likes.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /posts.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/prototype.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /prototype.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comment_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /comment_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/post_likes.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /post_likes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-12 22:15:13 -0300
+Served asset /application.js - 304 Not Modified (7ms)

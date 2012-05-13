@@ -7,9 +7,15 @@
 			<%= post.content %>
 		</p>
 		<% if post.post_likes.size > 0 %>
-		<p>
-			<%= post.post_likes.size %> people likes this.
-		</p>
+			<% if post.post_likes.size == 1 %>
+			<p>
+				<%= post.post_likes.first.user.username %>  likes this.
+			</p>
+			<% else %>
+			<p>
+				<%= post.post_likes.size %> people likes this.
+			</p>
+			<% end %>
 		<% end %>
 		<% if post.user == current_user %>
 			<%= link_to 'Destroy post', post, confirm: 'Are you sure?', method: :delete %> | 
@@ -24,16 +30,22 @@
 		<% end %>
 		<div id="comments_mural">
 		<!-- comentarios -->
-			<p style="font-weight: bold;">Comentários</p>
+			<p style="font-weight: bold;">Comments</p>
 			<% post.comments.each do |comment| %>
 				<p>
 					<b><%= comment.user.username %>:</b>
 					<%= comment.body %>
 				</p>
 				<% if comment.comment_likes.size > 0 %>
-				<p>
-					<%= comment.comment_likes.size %> people likes this.
-				</p>
+					<% if comment.comment_likes.size == 1 %>
+					<p>
+						<%= comment.comment_likes.first.user.username %>  likes this.
+					</p>
+					<% else %>
+					<p>
+						<%= comment.comment_likes.size %> people likes this.
+					</p>
+					<% end %>
 				<% end %>
 				<p>
 					<% if comment.user == current_user || post.user == current_user %>

@@ -5,13 +5,13 @@ class PostLikesController < ApplicationController
 		@like = PostLike.create(params[:post_like])
 		@user.post_likes << @like
 		@post.post_likes << @like
-		redirect_to post_path(@post)
+		redirect_to mural_posts_path
 	end
 	
 	def destroy
 	  @post = Post.find(params[:post_id])
 	  @like = @post.post_likes.find(params[:id])
 	  @like.destroy
-	  redirect_to post_path(@post)
+	  redirect_to mural_posts_path
 	end
 end

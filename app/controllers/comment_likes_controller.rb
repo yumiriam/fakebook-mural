@@ -5,13 +5,13 @@ class CommentLikesController < ApplicationController
 		@like = CommentLike.create(params[:comment_like])
 		@user.comment_likes << @like
 		@comment.comment_likes << @like
-		redirect_to post_path(@comment.post)
+		redirect_to mural_posts_path
 	end
 	
 	def destroy
 	  @comment = Comment.find(params[:comment_id])
 	  @like = @comment.comment_likes.find(params[:id])
 	  @like.destroy
-	  redirect_to post_path(@comment.post)
+	  redirect_to mural_posts_path
 	end
 end
