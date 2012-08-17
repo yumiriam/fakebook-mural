@@ -4,10 +4,13 @@ FakebookMural::Application.routes.draw do
   authenticated :user do
 	  resources :posts do
 	  	resources :comments
-	  	resources :post_likes
+	  	resources :post_likes do
+		  	get :custom_create, 	on: :collection
+		  	get	:custom_destroy, 	on: :member
+		  end
 	  end
 	end
-
+	
 	resources :comments do
 		resources :comment_likes
 	end
@@ -22,7 +25,7 @@ FakebookMural::Application.routes.draw do
   		:sign_up => 'cmon_let_me_in'
   	}
   	
-  get "home/index"
+  get 'home/index'
   
   authenticated :user do
   	root :to => 'home#index'

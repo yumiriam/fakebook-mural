@@ -63,12 +63,13 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to mural_posts_path, notice: 'Post was successfully created.' }
+        format.html # { redirect_to mural_posts_path, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -95,8 +96,9 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to mural_posts_path }
+      format.html #{ redirect_to mural_posts_path }
       format.json { head :no_content }
+      format.js
     end
   end
 end

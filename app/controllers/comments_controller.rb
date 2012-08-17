@@ -6,7 +6,11 @@ class CommentsController < ApplicationController
 		@user.comments << @comment
 		@post.comments << @comment
 		# redirect_to post_path(@post)
-		redirect_to mural_posts_path
+		# redirect_to mural_posts_path
+		
+		respond_to do |format|
+			format.js
+		end
 	end
 	
 	def destroy
@@ -14,6 +18,9 @@ class CommentsController < ApplicationController
 	  @comment = @post.comments.find(params[:id])
 	  @comment.destroy
 	  # redirect_to post_path(@post)
-	  redirect_to mural_posts_path
+	  #redirect_to mural_posts_path
+		respond_to do |format|
+			format.js
+		end
 	end
 end

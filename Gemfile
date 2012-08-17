@@ -37,6 +37,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-
 
-gem 'execjs'
+# gem 'execjs'
 
 gem 'devise'
+
+# Grupo 3 - Mural
+gem 'mechanize'
+gem 'youtube_it'

@@ -5,13 +5,19 @@ class CommentLikesController < ApplicationController
 		@like = CommentLike.create(params[:comment_like])
 		@user.comment_likes << @like
 		@comment.comment_likes << @like
-		redirect_to mural_posts_path
+		# redirect_to mural_posts_path
+		respond_to do |format|
+	  	format.js
+	  end
 	end
 	
 	def destroy
 	  @comment = Comment.find(params[:comment_id])
 	  @like = @comment.comment_likes.find(params[:id])
 	  @like.destroy
-	  redirect_to mural_posts_path
+	  # redirect_to mural_posts_path
+	  respond_to do |format|
+	  	format.js
+	  end
 	end
 end
